@@ -19,6 +19,15 @@
 
 Відкрийте посилання вище — і все. Програма — це один файл `index.html`, його також можна завантажити й відкрити з диска.
 
+## Встановлення як програми
+
+ElSim4U можна встановити, щоб він мав свою іконку і працював без інтернету:
+
+- **ПК (Chrome, Edge) і Android:** «Вигляд» → «Встановити програму» або значок встановлення в адресному рядку / меню браузера.
+- **iPhone, iPad:** відкрийте сайт у Safari → «Поділитися» → «На екран „Додому“».
+
+Іконку (4 варіанти) можна вибрати у «Вигляді» перед встановленням. Нові версії підтягуються самі, щойно є інтернет.
+
 ---
 
 **ElSim4U — electric circuit simulator.** Build circuits and watch them work right in the browser: currents, voltages, oscilloscope, multimeter. Ukrainian and English interface. [Open the app](https://xask1-lab.github.io/elsim4u/).

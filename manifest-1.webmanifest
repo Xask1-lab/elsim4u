@@ -1,0 +1,47 @@
+{
+ "id": "./",
+ "name": "ElSim4U — симулятор електричних кіл",
+ "short_name": "ElSim4U",
+ "description": "Симулятор електричних кіл: схеми, струми, напруги, осцилограф і мультиметр. Працює без інтернету.",
+ "lang": "uk",
+ "dir": "ltr",
+ "start_url": "./",
+ "scope": "./",
+ "display": "standalone",
+ "orientation": "any",
+ "background_color": "#0f131a",
+ "theme_color": "#0a7d6b",
+ "categories": [
+  "education",
+  "utilities"
+ ],
+ "icons": [
+  {
+   "src": "icons/icon-1-192.png",
+   "sizes": "192x192",
+   "type": "image/png",
+   "purpose": "any"
+  },
+  {
+   "src": "icons/icon-1-512.png",
+   "sizes": "512x512",
+   "type": "image/png",
+   "purpose": "any"
+  },
+  {
+   "src": "icons/icon-1-maskable.png",
+   "sizes": "512x512",
+   "type": "image/png",
+   "purpose": "maskable"
+  }
+ ],
+ "screenshots": [
+  {
+   "src": "screenshot.png",
+   "sizes": "1400x860",
+   "type": "image/png",
+   "form_factor": "wide",
+   "label": "ElSim4U"
+  }
+ ]
+}
