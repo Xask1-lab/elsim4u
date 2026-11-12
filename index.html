@@ -1,4 +1,4 @@
-<!doctype html><!-- ElSim4U · версія 145 · 2026-11-12 --><html><head><meta charset=utf8><meta name="app-version" content="145 · 2026-11-12"><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><link rel="manifest" href="manifest-2.webmanifest"><meta name="theme-color" content="#0a7d6b"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="ElSim4U"><link rel="apple-touch-icon" href="icons/apple-2.png"><meta name="description" content="ElSim4U — симулятор електричних кіл у браузері: схеми, струми, напруги, осцилограф, мультиметр. Працює без інтернету."><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html><!-- ElSim4U · версія 146 · 2026-11-12 --><html><head><meta charset=utf8><meta name="app-version" content="146 · 2026-11-12"><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><link rel="manifest" href="manifest-2.webmanifest"><meta name="theme-color" content="#0a7d6b"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="ElSim4U"><link rel="apple-touch-icon" href="icons/apple-2.png"><meta name="description" content="ElSim4U — симулятор електричних кіл у браузері: схеми, струми, напруги, осцилограф, мультиметр. Працює без інтернету."><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <!doctype html>
 <html lang="uk"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -131,7 +131,7 @@ dialog .myr{display:flex;gap:6px;align-items:center;padding:6px 0;border-bottom:
 #cw>#sct{position:absolute;left:10px;bottom:8px;z-index:4;width:42px;height:32px;padding:0;display:flex;align-items:center;justify-content:center;border-radius:9px;border:1px solid var(--bd);background:color-mix(in srgb,var(--pn) 90%,transparent);color:var(--tx);box-shadow:0 2px 8px rgba(0,0,0,.18)}#cw>#sct.on{background:color-mix(in srgb,var(--ac) 20%,var(--pn))!important;border-color:var(--ac)!important;color:var(--ac)!important}#cw>#sct svg{display:block}
 @media(max-width:900px),(pointer:coarse){#mid.nosc #cw>#sct{left:22px;bottom:20px}#mid.nosc #cw>#st{right:22px;bottom:22px}}
 
-#mlc{position:fixed;inset:0;width:100vw;height:100vh;pointer-events:none;z-index:20}
+#mlc{position:fixed;left:0;top:0;pointer-events:none;z-index:20}
 
 #jk{display:none;justify-content:space-around;align-items:center;gap:10px}
 #jk .jack{display:flex;align-items:center;gap:7px;font:700 11px ui-monospace,monospace;color:var(--mu);cursor:grab;touch-action:none;user-select:none;-webkit-user-select:none}
@@ -3526,6 +3526,8 @@ icon=(o=>function(cn,t){if(t!=='Txt'&&t!=='Frm')return o(cn,t);const d=devicePix
  function frame(now){const dt=Math.min(.033,(now-last)/1000);last=now;const m=on();sw&&sw.classList.toggle('mtr',m);
   ML.tilt+=(ML.tg-ML.tilt)*Math.min(1,dt*6);
   const d=devicePixelRatio||1,W=innerWidth,Hh=innerHeight;if(oc.width!==Math.round(W*d)||oc.height!==Math.round(Hh*d)){oc.width=Math.round(W*d);oc.height=Math.round(Hh*d)}
+  // CSS-розмір полотна = розмір вікна в пікселях (а не 100vw/100vh): інакше на iPhone картинка розтягується і кабель зміщується від гнізда
+  if(oc.style.width!==W+'px'||oc.style.height!==Hh+'px'){oc.style.width=W+'px';oc.style.height=Hh+'px'}
   ox.setTransform(d,0,0,d,0,0);ox.clearRect(0,0,W,Hh);
   for(const t of ML.t)if(t.a&&!comps.includes(t.a.c)){t.a=null;mlReset()}
   ox.save();{const md=$('mid'),R=md&&md.getBoundingClientRect(),sv=$('sv'),q=sv&&sv.getBoundingClientRect();ox.beginPath();if(R)ox.rect(R.left,R.top,R.width,R.height);else ox.rect(0,0,W,Hh);ox.clip()}
@@ -5216,9 +5218,10 @@ for(const k of['X','X2s'])if(INFO[k]){INFO[k].c=INFO[k].c||[];if(!INFO[k].c.incl
 <script>
 /*VERSION-BEGIN*/
 // ---------- версія додатку: збільшується з кожним новим файлом / публікацією ----------
-const APP_VER='145',APP_DATE='2026-11-12';
+const APP_VER='146',APP_DATE='2026-11-12';
 // короткий журнал змін (новіші зверху)
 const APP_LOG=[
+ ['146','2026-11-12','Виправлено: на iPhone кабель щупа мультиметра виходив не з гнізда, а був зміщений униз.'],
  ['145','2026-11-12','Версія для сайту стала PWA: програму можна встановити на ПК, Android і iPhone (кнопка «Встановити програму» у «Вигляді»), вона працює без інтернету й оновлюється сама. Вибрана іконка використовується при встановленні.'],
  ['144','2026-11-12','Вибір іконки програми у «Вигляді» (4 варіанти, за замовчуванням — блискавка на платі). Іконка вкладки змінюється відразу. Файл для завантаження тепер містить англійський словник і картинки вибору вигляду всередині — працює як один HTML.'],
  ['143','2026-11-11','Ще швидший розрахунок: лінійні елементи враховуються один раз на крок (схеми з транзисторами та мікросхемами — до 2 разів швидше, ніж у версії 141). Швидше малювання: фон із сіткою більше не перемальовується щокадру.'],
